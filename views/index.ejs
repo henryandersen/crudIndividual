@@ -1,0 +1,47 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>MY APP</title>
+</head>
+<body>
+
+New Task:
+
+<form action='/api/tasks' method="POST">
+<input type="text" placeholder="task" name="tasks">
+<span> Deadline:</span>
+  <select id = "day" name = "day">
+    <option value="monday">Monday</option>
+    <option value="tuesday">Tuesday</option>
+    <option value="wednesday">Wednesday</option>
+    <option value="thursday">Thursday</option>
+    <option value="friday">Friday</option>
+    <option value="saturday">Saturday</option>
+    <option value="sunday">Sunday</option>
+  </select>
+
+    <button type="submit">Submit</button>
+</form>
+
+
+To Do:
+<ul class="allTasks">
+  <% for(var i=0; i < tasks.length; i++) { %>
+    <li class="task">
+      <span style="color:red"><%= tasks[i].tasks %></span>
+      <span> BY </span>
+      <span style="color:blue"><%= tasks[i].day %></span>
+    <form method="post" action ="/api/delete">
+        <input type= "hidden" name="buttonId" value= "<%=tasks[i].id%>">
+        <button type= "submit" value ="finished">done</button>
+        </form>
+        <form method="post" action ="/api/toEdit">
+            <input type= "hidden" name="buttonId" value= "<%=tasks[i].id%>">
+            <button type= "submit" value ="finished">Edit</button>
+            </form>
+      </li>
+  <% } %>
+  </ul>
+
+</body>
+</html>

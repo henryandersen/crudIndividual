@@ -1,0 +1,25 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>MY APP</title>
+</head>
+<body>
+
+Edit Task:
+
+<form action='/api/edit' method="POST">
+<input type="text" placeholder="task" name="tasks">
+<input type="hidden" name="taskId" value="<%=taskId%>">
+<span> Deadline:</span>
+  <select id = "day" name = "day">
+    <option value="monday">Monday</option>
+    <option value="tuesday">Tuesday</option>
+    <option value="wednesday">Wednesday</option>
+    <option value="thursday">Thursday</option>
+    <option value="friday">Friday</option>
+    <option value="saturday">Saturday</option>
+    <option value="sunday">Sunday</option>
+  </select>
+
+    <button type="submit">Submit</button>
+</form>
